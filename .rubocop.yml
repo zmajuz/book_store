@@ -21,3 +21,5 @@ Style/Documentation:
   Enabled: false
 Style/ClassAndModuleChildren:
   EnforcedStyle: 'compact'
+Style/StringLiterals:
+  EnforcedStyle: single_quotes
