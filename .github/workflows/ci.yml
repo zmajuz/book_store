@@ -36,20 +36,10 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Set up Ruby
+      - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: '3.4.5'
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '18'
-
-      - name: Install Node.js dependencies
-        run: |
-          corepack enable
-          yarn install --check-files
 
       - name: Install Ruby dependencies
         run: |
