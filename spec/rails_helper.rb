@@ -7,7 +7,7 @@ SimpleCov.start 'rails' do
   add_filter 'mailers'
 end
 
-Simplecov.minimum_coverage 100
+SimpleCov.minimum_coverage 100
 
 require_relative '../config/environment'
 

@@ -13,6 +13,7 @@ group :development, :test do
   gem 'brakeman', require: false
   gem 'debug', platforms: %i[ mri windows ], require: 'debug/prelude'
   gem 'factory_bot_rails', '~> 6.5'
+  gem 'pry-byebug', '~> 3.11'
   gem 'rspec-rails', '~> 8.0', '>= 8.0.1'
   gem 'rubocop-rails-omakase', require: false
 end
