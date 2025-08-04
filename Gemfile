@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 gem 'rails', '~> 8.0.2'
 
 gem 'bootsnap', require: false
+gem 'jsonapi-serializer', '~> 2.2'
 gem 'kamal', require: false
 gem 'pg', '>= 1.5.4'
 gem 'puma', '>= 5.0'
