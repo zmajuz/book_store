@@ -7,13 +7,15 @@ SimpleCov.start 'rails' do
   add_filter 'mailers'
 end
 
-Simplecov.minimum_coverage 100
+SimpleCov.minimum_coverage 100
 
 require_relative '../config/environment'
 
 abort("The Rails environment is running in production mode!") if Rails.env.production?
 
 require 'rspec/rails'
+
+Dir[Rails.root.join('spec/support/**/*.rb')].sort.each { |f| require f }
 
 begin
   ActiveRecord::Migration.maintain_test_schema!
@@ -28,6 +30,7 @@ RSpec.configure do |config|
   config.use_transactional_fixtures = true
   config.filter_rails_from_backtrace!
   config.include FactoryBot::Syntax::Methods
+  config.include ResponseHelper, type: :request
 end
 
 Shoulda::Matchers.configure do |config|
