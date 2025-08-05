@@ -20,26 +20,24 @@ describe 'Books Api', type: :request do
         )
 
         get '/api/v1/books'
-        parsed_json = JSON.parse(response.body, symbolize_names: true)
 
         expect(response).to have_http_status(:ok)
-        expect(parsed_json[:data].first[:attributes][:title]).to eq('A culpa é das Estrelas')
-        expect(parsed_json[:data].first[:attributes][:author_name]).to eq('John Green')
-        expect(parsed_json[:data].first[:attributes][:cover_image_url]).to eq('http:blablabla.com')
-        expect(parsed_json[:data].first[:attributes][:price]).to eq('25.0')
+        expect(response_data.first[:attributes][:title]).to eq('A culpa é das Estrelas')
+        expect(response_data.first[:attributes][:author_name]).to eq('John Green')
+        expect(response_data.first[:attributes][:cover_image_url]).to eq('http:blablabla.com')
+        expect(response_data.first[:attributes][:price]).to eq('25.0')
 
-        expect(parsed_json[:data].last[:attributes][:title]).to eq('1984')
-        expect(parsed_json[:data].last[:attributes][:author_name]).to eq('George Orwell')
-        expect(parsed_json[:data].last[:attributes][:cover_image_url]).to eq('http:maismais.com')
-        expect(parsed_json[:data].last[:attributes][:price]).to eq('10.0')
+        expect(response_data.last[:attributes][:title]).to eq('1984')
+        expect(response_data.last[:attributes][:author_name]).to eq('George Orwell')
+        expect(response_data.last[:attributes][:cover_image_url]).to eq('http:maismais.com')
+        expect(response_data.last[:attributes][:price]).to eq('10.0')
       end
 
       it 'and return empty list' do
         get '/api/v1/books'
-        empty_book = JSON.parse(response.body, symbolize_names: true)
 
         expect(response).to have_http_status(:ok)
-        expect(empty_book[:data]).to be_empty
+        expect(response_data).to be_empty
       end
     end
   end
