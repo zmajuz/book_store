@@ -3,14 +3,13 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.dev
-    entrypoint: entrypoint.sh
     env_file:
       - .env
     ports:
       - '3000:3000'
     volumes:
       - .:/app
-    command: ./bin/rails server -b 0.0.0.0 -p 3000
+      - ruby_gems:/usr/local/bundle
     depends_on:
       - db
   db:
@@ -23,3 +22,4 @@ services:
       - postgres:/var/lib/postgresql/data
 volumes:
   postgres:
+  ruby_gems:
