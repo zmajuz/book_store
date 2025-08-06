@@ -2,6 +2,10 @@ FROM ruby:3.4.5
 
 RUN apt-get update -qq && apt-get install -y curl build-essential libpq-dev
 
+ARG UID=1000
+ARG GID=1000
+RUN groupadd -g $GID appuser && useradd -m -u $UID -g appuser appuser
+
 WORKDIR /app
 
 COPY Gemfile Gemfile.lock ./
@@ -12,6 +16,10 @@ COPY . .
 COPY entrypoint.sh /usr/bin/entrypoint.sh
 RUN chmod +x /usr/bin/entrypoint.sh
 
+USER appuser
+
 EXPOSE 3000
 
-CMD ["sh", "/usr/bin/entrypoint.sh"]
+ENTRYPOINT ["/usr/bin/entrypoint.sh"]
+
+CMD ["bin/setup", "-b", "0.0.0.0", "-p", "3000"]
