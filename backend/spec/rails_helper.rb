@@ -7,7 +7,6 @@ SimpleCov.start 'rails' do
   add_filter 'mailers'
 end
 
-# Enforce minimum coverage only on CI; configurable via MIN_COVERAGE env (default 85)
 if ENV['CI'] == 'true'
   SimpleCov.minimum_coverage ENV.fetch('MIN_COVERAGE', '100').to_i
 end
