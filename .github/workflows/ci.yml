@@ -24,6 +24,9 @@ jobs:
 
   test:
     runs-on: ubuntu-latest
+    env:
+      CI: 'true'
+      MIN_COVERAGE: '100'
 
     services:
       postgres:
