@@ -5,11 +5,10 @@ require 'simplecov'
 SimpleCov.start 'rails' do
   add_filter 'channels'
   add_filter 'mailers'
+  add_filter 'jobs'
 end
 
-if ENV['CI'] == 'true'
-  SimpleCov.minimum_coverage ENV.fetch('MIN_COVERAGE', '100').to_i
-end
+SimpleCov.minimum_coverage 100
 
 require_relative '../config/environment'
 
