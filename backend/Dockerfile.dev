@@ -16,8 +16,6 @@ COPY . .
 COPY entrypoint.sh /usr/bin/entrypoint.sh
 RUN chmod +x /usr/bin/entrypoint.sh
 
-USER appuser
-
 EXPOSE 3000
 
 ENTRYPOINT ["/usr/bin/entrypoint.sh"]
