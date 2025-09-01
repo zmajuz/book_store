@@ -1,4 +1,4 @@
-import { formatCurrency } from "../../utils/formatters"
+import { formatCurrency } from '../../utils/formatters';
 
 export default function BookCard({ book }) {
   return (

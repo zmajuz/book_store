@@ -1,4 +1,4 @@
-import BookCard from "../BookCard/BookCard";
+import BookCard from '../BookCard/BookCard';
 
 export default function BookList({ books }) {
   return (

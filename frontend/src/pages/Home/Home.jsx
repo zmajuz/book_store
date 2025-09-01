@@ -1,5 +1,5 @@
-import BookList from "../../components/BookList/BookList";
-import { useBooks } from "../../hooks/useBooks";
+import BookList from '../../components/BookList/BookList';
+import { useBooks } from '../../hooks/useBooks';
 
 export default function Home() {
   const { books, loading } = useBooks();
