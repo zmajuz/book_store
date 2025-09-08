@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 gem 'rails', '~> 8.0.2'
 
 gem 'bootsnap', require: false
+gem 'image_processing', '>= 1.2'
 gem 'jsonapi-serializer', '~> 2.2'
 gem 'kamal', require: false
 gem 'pg', '>= 1.5.4'
@@ -10,6 +11,7 @@ gem 'puma', '>= 5.0'
 gem 'rack-cors', '~> 3.0'
 gem 'thruster', require: false
 gem 'tzinfo-data', platforms: %i[ windows jruby ]
+
 
 group :development, :test do
   gem 'brakeman', require: false

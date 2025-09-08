@@ -4,7 +4,7 @@ export default function BookCard({ book }) {
   return (
     <div className="bg-white rounded-lg hover:shadow-lg transition flex flex-col items-center">
       <img
-        src="https://img.travessa.com.br/livro/BA/e2/e2d0eb97-d78a-4d9b-8e23-3cef59bef1bf.jpg"
+        src={book.cover_image_url}
         alt={book.title}
         className="w-full h-64 object-contain mb-1"
       />

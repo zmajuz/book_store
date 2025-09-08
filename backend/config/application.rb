@@ -28,5 +28,8 @@ module BookStore
     # Middleware like session, flash, cookies can be added back manually.
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
+
+    Rails.application.routes.default_url_options[:host] = ENV.fetch("APP_HOST", "localhost")
+    Rails.application.routes.default_url_options[:port] = ENV.fetch("APP_PORT", 3000)
   end
 end
