@@ -5,7 +5,7 @@ describe 'Books Api', type: :request do
     context 'when the request is successful' do
       it 'and return all books' do
         file = Rack::Test::UploadedFile.new(Rails.root.join('spec/fixtures/files/capa_a_culpa.jpg'), 'image/jpeg')
-        
+
         book = create(
           :book,
           title: 'A culpa é das Estrelas',
