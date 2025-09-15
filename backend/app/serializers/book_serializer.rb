@@ -3,7 +3,7 @@ class BookSerializer
 
   attributes :title, :author_name, :price, :synopsis
 
-  attribute :cover_image_url do |object|
-    Rails.application.routes.url_helpers.url_for(object.cover_image) if object.cover_image.attached?
+  attribute :cover_image_url do |book|
+    Rails.application.routes.url_helpers.url_for(book.cover_image) if book.cover_image.attached?
   end
 end
