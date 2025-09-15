@@ -6,14 +6,14 @@ describe 'Books Api', type: :request do
       it 'and return all books' do
         file = Rack::Test::UploadedFile.new(Rails.root.join('spec/fixtures/files/capa_a_culpa.jpg'), 'image/jpeg')
 
-        book = create(
+        create(
           :book,
           title: 'A culpa é das Estrelas',
           author_name: 'John Green',
           cover_image: file,
           price: 25.00
         )
-        book02 = create(
+        create(
           :book,
           title: '1984',
           author_name: 'George Orwell',

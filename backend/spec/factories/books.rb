@@ -6,7 +6,7 @@ FactoryBot.define do
 
     after(:build) do |book|
       image_path = Dir.glob(Rails.root.join('spec/fixtures/files/*')).sample
-      if image_path && File.exist?(image_path)
+      if image_path
         book.cover_image.attach(
           Rack::Test::UploadedFile.new(
             image_path, 'image/jpeg'
