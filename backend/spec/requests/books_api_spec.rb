@@ -34,7 +34,7 @@ describe 'Books Api', type: :request do
 
   context 'GET /api/v1/books/:id' do
     context 'when the request is successful' do
-      it 'and return a book'do
+      it 'and return a book' do
         file = Rack::Test::UploadedFile.new(Rails.root.join('spec/fixtures/files/capa_a_culpa.jpg'), 'image/jpeg')
 
         book = create(
