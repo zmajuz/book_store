@@ -11,6 +11,7 @@ describe BookSerializer, type: :serializer do
       expect(serialized[:data][:attributes][:author_name]).to eq('John Green')
       expect(serialized[:data][:attributes][:cover_image_url]).to be_present
       expect(serialized[:data][:attributes][:price].to_f).to eq(25.0)
+      expect(serialized[:data][:attributes][:synopsis]).to be_present
     end
 
     it 'returns the expected keys in attributes' do
@@ -22,6 +23,7 @@ describe BookSerializer, type: :serializer do
           author_name
           price
           cover_image_url
+          synopsis
         ]
       )
     end
