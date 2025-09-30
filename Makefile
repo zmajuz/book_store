@@ -15,13 +15,11 @@ cop: _ensure_up ## Executa o RuboCop dentro do container
 	@docker compose exec $(SERVICE) bundle exec rubocop
 
 rspec: _ensure_up ## Executa os testes RSpec (use SPEC="spec/path" para executar testes específicos)
-	@docker compose exec $(SERVICE) bin/rails db:prepare RAILS_ENV=test
-	@docker compose exec $(SERVICE) bundle exec rspec $(filter-out $@,$(MAKECMDGOALS))
+	@docker compose exec $(SERVICE) bin/rails db:prepare RAILS_ENV=test && docker compose exec $(SERVICE) bundle exec rspec $(filter-out $@,$(MAKECMDGOALS))
+
 
 suit: _ensure_up ## Executa RuboCop e RSpec em sequência
-	@docker compose exec $(SERVICE) bundle exec rubocop
-	@docker compose exec $(SERVICE) bin/rails db:prepare RAILS_ENV=test
-	@docker compose exec $(SERVICE) bundle exec rspec $(filter-out $@,$(MAKECMDGOALS))
+	@docker compose exec $(SERVICE) bundle exec rubocop && docker compose exec $(SERVICE) bin/rails db:prepare RAILS_ENV=test && docker compose exec $(SERVICE) bundle exec rspec $(filter-out $@,$(MAKECMDGOALS))
 
 logs: ## Mostra os logs em tempo real do backend
 	@echo "📜 Acompanhando os logs do backend..."
@@ -61,3 +59,6 @@ help: ## Exibe esta lista de comandos
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) \
 		| sort \
 		| awk 'BEGIN {FS = ":.*?## "}; {printf "  \033[36m%-15s\033[0m %s\n", $$1, $$2}'
+
+%:
+	@:
